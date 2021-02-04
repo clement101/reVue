@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{ msg }}</p>
+        <p v-text="html">抱歉你的瀏覽器不支援Javascript</p>
+    </div>
+    <script>
+        let data = {
+                msg: 'Hello Vue',
+                html: '<span style="color : red"> This should be red </span>',
+            }
+        let vm = new Vue({
+            el: '#app',
+            template:`<span style="color : red"> This {{msg}} be red </span>`,
+            data,
+        })
+    </script>
+</body>
+</html>

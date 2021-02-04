@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <template v-show="show">
+            <h1>Hello Vue</h1>
+            <span>description</span>
+
+        </template>
+        <!-- <template v-else>
+            <h1>xxx</h1>
+            <span>description</span>
+
+        </template> -->
+        <div v-if="type === 'A'">
+            A
+        </div>
+        <div v-else-if="type === 'B'">
+            B
+        </div>
+        <div v-else-if="type === 'C'">
+            C
+        </div>
+        <div v-else>
+            Not A/B/C
+        </div>
+        <div> {{content}}</div>
+    </div>
+    <script>
+        const dataMapping = {
+            A: "aaaaaaaa",
+            B: 'bbbbbbbbbbbb',
+            C: 'ccccccccccc',
+        }
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                show: true,
+                type: 'A',
+            },
+            computed: {
+                content() {
+                    return dataMapping[this.type] || 'no content'
+                }
+            },
+
+        })
+    </script>
+</body>
+
+</html>

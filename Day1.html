@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div id="section1"></div>
+        <div id="section2"></div>
+        <div id="section3"></div>
+        <div id="section4"></div>
+        <div id="section5">
+            <p>{{ copyright }}</p>
+            <p>{{ company }}</p>
+            <p>&copy</p>
+        </div>
+    </div>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.5/vue.cjs.js"></script> -->
+    
+    <script>
+        ;(function(){
+            new Vue({
+                el: '#section5',
+                data: {
+                    copyright : '版權所有，轉載必究',
+                    company : '©' + new Date().getFullYear(),
+                }
+            })
+        })()
+    </script>
+</body>
+</html>
