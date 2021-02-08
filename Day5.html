@@ -33,8 +33,16 @@
             Not A/B/C
         </div>
         <div> {{content}}</div>
+        <div v-for ="user in userListArray">{{user.name}}</div>
+        <text-component v-for="num in total"/>
     </div>
     <script>
+        Vue.component('TextComponent',{
+            template:'<div>text</div>',
+            created() {
+                console.log('text')
+            },
+        })
         const dataMapping = {
             A: "aaaaaaaa",
             B: 'bbbbbbbbbbbb',
@@ -44,8 +52,18 @@
         let vm = new Vue({
             el: '#app',
             data: {
+                total: 5,
                 show: true,
                 type: 'A',
+                userListArray:[{
+                    name: 'Sara',
+                    gender: 'Famale',
+                }],
+            },
+            mounted(){
+                setInterval(() => {
+                    this.total +=1
+                }, 1000);
             },
             computed: {
                 content() {
