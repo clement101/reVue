@@ -33,12 +33,12 @@
             Not A/B/C
         </div>
         <div> {{content}}</div>
-        <div v-for ="user in userListArray">{{user.name}}</div>
-        <text-component v-for="num in total"/>
+        <div v-for="user in userListArray">{{user.name}}</div>
+        <text-component v-for="num in total" />
     </div>
     <script>
-        Vue.component('TextComponent',{
-            template:'<div>text</div>',
+        Vue.component('TextComponent', {
+            template: '<div>text</div>',
             created() {
                 console.log('text')
             },
@@ -48,6 +48,7 @@
             B: 'bbbbbbbbbbbb',
             C: 'cccccccccccc',
             D: 'Hello',
+            
         }
         let vm = new Vue({
             el: '#app',
@@ -55,14 +56,14 @@
                 total: 5,
                 show: true,
                 type: 'A',
-                userListArray:[{
+                userListArray: [{
                     name: 'Sara',
                     gender: 'Famale',
                 }],
             },
-            mounted(){
+            mounted() {
                 setInterval(() => {
-                    this.total +=1
+                    this.total += 1
                 }, 1000);
             },
             computed: {
