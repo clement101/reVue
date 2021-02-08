@@ -10,9 +10,14 @@
 
 <body>
 	<div id="app">
-		<h1>{{ count }}</h1>
+		<!-- <h1>{{ count }}</h1>
 		<button @click=" count -= 1">Prev</button>
-		<button @click=" count += 1">Next</button>
+		<button @click=" count += 1">Next</button> -->
+		<button v-for="(countent,index) of contents" @click="count = index"> {{index}}</button>
+		<!-- <h1>{{count}}</h1> -->
+		<div>
+			<h1 v-for="(countent,index) of contents" v-show="index === count">{{countent}}</h1>
+		</div>
 	</div>
 	<script>
 
@@ -21,6 +26,7 @@
 			data: {
 				count: 0,
 				total:4,
+				contents:['aaa','bbb','ccc','ddd'],
 			},
 
 
