@@ -13,10 +13,10 @@
 		<!-- <h1>{{ count }}</h1>
 		<button @click=" count -= 1">Prev</button>
 		<button @click=" count += 1">Next</button> -->
-		<button v-for="(countent,index) of contents" @click="count = index"> {{index}}</button>
+		<button v-for="(content,index) of contents" @click="clickHandler(index,$event)" :data-index="index"> {{index}}</button>
 		<!-- <h1>{{count}}</h1> -->
 		<div>
-			<h1 v-for="(countent,index) of contents" v-show="index === count">{{countent}}</h1>
+			<h1 v-for="(content,index) of contents" v-show="index === count">{{content}}</h1>
 		</div>
 	</div>
 	<script>
@@ -28,7 +28,12 @@
 				total:4,
 				contents:['aaa','bbb','ccc','ddd'],
 			},
-
+			methods: {
+				clickHandler(index,event){
+					console.log(event)
+					this.count =index
+				}
+			}
 
 		})
 	</script>
